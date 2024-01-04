@@ -65,17 +65,20 @@ void PhoneBook::Search()
 		std::cout << "|";
 		for (int f = 0; f <= 3; f++)
 		{
-			std::string output = contacts[i].getString(f);
+			if (f == 0)
+			{
+				std::cout << std::setfill (' ') << std::setw (10);
+				std::cout << i << "|";
+				continue ;
+			}
+			std::string output = contacts[i].getString(f - 1);
 			if (output.length() > 9)
 			{
 				output.replace(9, 1, ".");
 				output.resize(10);
 			}
 			std::cout << std::setfill (' ') << std::setw (10);
-			if (f == 0)
-				std::cout << i;
-			else
-				std::cout << output;
+			std::cout << output;
 			std::cout << "|";
 		}
 		std::cout << std::endl;
