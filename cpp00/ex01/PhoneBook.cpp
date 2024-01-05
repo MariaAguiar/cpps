@@ -120,6 +120,8 @@ void PhoneBook::Search()
 			}
 			break ;
 		}
+		else
+			std::cout << "Invalid Index. ";
 	}
 }
 

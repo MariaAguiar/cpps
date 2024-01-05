@@ -7,6 +7,7 @@ int main(void)
 
 	while (!std::cin.eof())
 	{
+		std::cout << "Enter command (ADD, SEARCH or EXIT): ";
 		std::getline(std::cin, input);
 		if (input == "ADD")
 			phonebook.Add();
