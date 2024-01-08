@@ -1,0 +1,10 @@
+
+ex00:
+Announce should be in public?
+
+ex01:
+int N should be fixed and not an argument?
+
+ex02:
+Study references
+
