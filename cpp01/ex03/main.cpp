@@ -10,12 +10,14 @@ int main( void )
 	Weapon club = Weapon("Brute Honesty");
 	HumanA bob("Bob", club);
 	bob.attack();
-	club.setType("Inapproriate Retorts");
+	club.setType("Inappropriate Retorts");
 	bob.attack();
 	}
 	{
 	Weapon club = Weapon("Poutting");
 	HumanB jim("Jim");
+	// jim.setWeapon(club);
+	jim.attack();
 	jim.setWeapon(club);
 	jim.attack();
 	club.setType("Waving white flag");

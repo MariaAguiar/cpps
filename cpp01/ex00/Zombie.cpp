@@ -4,7 +4,7 @@
 Zombie::Zombie( std::string myName )
 {
 	this->name = myName;
-	Zombie::announce();
+	this->announce();
 }
 
 void Zombie::announce()

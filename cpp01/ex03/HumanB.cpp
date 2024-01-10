@@ -3,17 +3,21 @@
 
 HumanB::HumanB( std::string myName )
 {
-	this->name = myName;
+	this->_name = myName;
+	this->_weapon = NULL;
 }
 
 void HumanB::setWeapon( Weapon &myWeapon )
 {
-	this->weapon = &myWeapon;
+	this->_weapon = &myWeapon;
 }
 
 void HumanB::attack()
 {
-	std::cout << this->name << " attacks with their " << weapon->getType() << std::endl;
+	if (this->_weapon)
+		std::cout << this->_name << " attacks with their " << _weapon->getType() << std::endl;
+	else
+		std::cout << this->_name << " is unarmed" << std::endl;
 }
 
 HumanB::~HumanB(){}
