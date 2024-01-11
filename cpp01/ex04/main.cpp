@@ -1,9 +1,6 @@
 
 #include <iostream>
-#include <sstream>
 #include <fstream>
-#include <cstring>
-#include <string>
 
 int main( int ac, char **av )
 {
