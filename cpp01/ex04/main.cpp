@@ -31,7 +31,7 @@ int main( int ac, char **av )
 	{
 		size_t pos = 0;
 		sum += s.size();
-		while (pos < s.size() - 1)
+		while (s2.size() && pos < s.size() - 1)
 		{
 			pos = s.find(s2, pos);
 			if (pos == std::string::npos)
