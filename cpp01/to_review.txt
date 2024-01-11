@@ -12,3 +12,5 @@ ex03:
 I don't get reference usage after all...
 Check the underscore thing
 
+ex04:
+Delete text file. Review everything!
