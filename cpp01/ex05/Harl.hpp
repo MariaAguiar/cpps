@@ -16,8 +16,7 @@ class Harl
 		void warning( void );
 		void error( void );
 		void invalidComplaint(void);
+		typedef void (Harl::*t_func) ( void );
 };
-
-typedef void (Harl::*t_func) ( void );
 
 #endif
