@@ -18,6 +18,4 @@ class Harl
 		void invalidComplaint(void);
 };
 
-typedef void (Harl::*t_func) ( void );
-
 #endif

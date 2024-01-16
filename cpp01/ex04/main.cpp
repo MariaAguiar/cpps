@@ -9,6 +9,12 @@ int main( int ac, char **av )
 		std::cerr << "Invalid number of arguments" << std::endl;
 		return 1;
 	}
+	std::string s2 = av[2];
+	if (s2.empty())
+	{
+		std::cerr << "Invalid substitution sequence" << std::endl;
+		return 1;
+	}
 	std::ifstream filename;
   	filename.open (av[1], std::ifstream::binary);
 	
@@ -26,7 +32,6 @@ int main( int ac, char **av )
 	int sum = 0;
 	char c;
     output.flush();
-	std::string s2 = av[2];
 	while (std::getline(filename, s))
 	{
 		size_t pos = 0;
