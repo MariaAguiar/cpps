@@ -4,7 +4,6 @@
 Zombie::Zombie( const std::string& myName )
 {
 	name = myName; //copy constructor da std::string
-	std::cout << "zombie " << name << " created" << std::endl;
 	announce();
 }
 

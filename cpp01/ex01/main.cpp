@@ -9,7 +9,7 @@ int main( int ac, char **av )
 		int	i;
 		std::stringstream ss(av[1]);
 		ss >> i;
-		if (ss.fail())
+		if (ss.fail() || i < 0)
 		{
 			std::cout << "Invalid Argument" << std::endl;
 			return (2);
