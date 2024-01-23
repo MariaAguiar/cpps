@@ -8,6 +8,5 @@ int main( void )
 	heap_zombie->announce();
 	if (heap_zombie)
 		delete heap_zombie;
-
 	return 1;
 }
