@@ -29,40 +29,25 @@ int main( int ac, char **av )
 	std::ofstream output(outfile.c_str());
 
 	std::string s;
-	int sum = 0;
-	char c;
     output.flush();
+	int flag = 0;
+	std::string s3 = av[3];
 	while (std::getline(filename, s))
 	{
 		size_t pos = 0;
-		sum += s.size();
-		while (s2.size() && pos < s.size() - 1)
+		while (s2.size() && pos < s.size())
 		{
 			pos = s.find(s2, pos);
 			if (pos == std::string::npos)
 				break ;
-			int i = 0;
-			for (i = 0; av[2][i]; i++)
-			{
-				if (av[3][i])
-					s[pos++] = av[3][i];
-				else
-				{
-					s.erase(pos, s2.size() - i);
-					break ;
-				}
-			}
-			if (av[3][i])
-			{
-				s.insert(pos, &av[3][i]);
-				std::string aux = &av[3][i];
-				pos += aux.size();
-			}
+			s.erase(pos, s2.size());
+			s.insert(pos, av[3]);
+			pos += s3.size();
 		}
-		filename.seekg(sum, filename.beg);
-		filename.get(c);
-		sum++;
-		output << s << c;
+		if (flag == 1)
+			output << '\n';
+		output << s;
+		flag = 1;
 	}
 	output.close();
   	filename.close();

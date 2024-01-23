@@ -52,10 +52,8 @@ void Harl::complain( std::string level )
 	case 3:
 		error();
 		break;
-	case 4:
-		invalidComplaint();
-		break;
 	default:
+		invalidComplaint();
 		break;
 	}
 }
