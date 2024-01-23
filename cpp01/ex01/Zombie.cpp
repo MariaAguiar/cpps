@@ -8,9 +8,9 @@ void Zombie::announce()
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void Zombie::setName( std::string myName )
+void Zombie::setName( const std::string& myName )
 {
-	this->name = myName;
+	name = myName; //copy assignment da std::string;
 }
 
 Zombie::~Zombie()

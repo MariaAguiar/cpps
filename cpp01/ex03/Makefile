@@ -2,6 +2,7 @@ NAME = Unnecessary_violence
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+INCS = Weapon.hpp HumanA.hpp HumanB.hpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)
@@ -9,7 +10,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(CXX) $(CXXFLAGS) -o $@ $^
 
-obj/%.o: %.cpp
+obj/%.o: %.cpp $(INCS)
 	@mkdir -p obj
 	@$(CXX) $(CXXFLAGS) -c -o $@ $<
 

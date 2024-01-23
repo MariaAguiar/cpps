@@ -6,10 +6,10 @@
 class Weapon
 {
 	public:
-		Weapon( const std::string &newType );
+		Weapon( const std::string& newType );
 		~Weapon();
-		void setType( std::string newType );
-		const std::string &getType();
+		void setType( const std::string& newType );
+		const std::string &getType() const; // eu prometo que nao vou alterar nenhuma das member variables da classe, quando chamar esta função
 	private:
 		std::string type;
 };

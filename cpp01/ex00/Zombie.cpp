@@ -1,18 +1,19 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie( std::string myName )
+Zombie::Zombie( const std::string& myName )
 {
-	this->name = myName;
-	this->announce();
+	name = myName; //copy constructor da std::string
+	std::cout << "zombie " << name << " created" << std::endl;
+	announce();
 }
 
 void Zombie::announce()
 {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "RIP, " << this->name << ", henceforth forgotten" << std::endl;
+	std::cout << "RIP, " << name << ", henceforth forgotten" << std::endl;
 }

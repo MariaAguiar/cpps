@@ -6,12 +6,12 @@ Weapon::Weapon( const std::string &myType )
 	this->type = myType;
 }
 
-const std::string &Weapon::getType()
+const std::string& Weapon::getType() const
 {
 	return (this->type);
 }
 
-void Weapon::setType( std::string newType )
+void Weapon::setType( const std::string& newType )
 {
 	this->type = newType;
 }

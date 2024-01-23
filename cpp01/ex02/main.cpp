@@ -14,5 +14,6 @@ int main( void )
 	std::cout << "Value of str: " << str << std::endl;
 	std::cout << "Value of stringPTR: " << *stringPTR << std::endl;
 	std::cout << "Value of stringREF: " << stringREF << std::endl;
+
 	return 1;
 }

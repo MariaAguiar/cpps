@@ -8,12 +8,12 @@
 class HumanA
 {
 	public:
-		HumanA( std::string myName, Weapon &myWeapon );
+		HumanA( const std::string& myName, Weapon &myWeapon );
 		~HumanA();
 		void attack();
 	private:
 		std::string name;
-		Weapon *weapon;
+		Weapon& _weapon;
 };
 
 #endif
