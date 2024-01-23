@@ -15,8 +15,6 @@ int main( int ac, char **av )
 			return (2);
 		}
 		Zombie* horde = zombieHorde( i, "Heap Soldier" );
-		if (!horde)
-			return (2);
 		for (int t = 0; t < i; t++)
 		{
 			std::cout << t + 1 << ": ";
