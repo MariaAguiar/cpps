@@ -31,10 +31,11 @@ int main( int ac, char **av )
 	std::string s;
     output.flush();
 	int flag = 0;
+	size_t pos;
 	std::string s3 = av[3];
 	while (std::getline(filename, s))
 	{
-		size_t pos = 0;
+		pos = 0;
 		while (s2.size() && pos < s.size())
 		{
 			pos = s.find(s2, pos);
@@ -49,6 +50,8 @@ int main( int ac, char **av )
 		output << s;
 		flag = 1;
 	}
+	if (s == "\0" && flag == 1)
+		output << "\n";
 	output.close();
   	filename.close();
 
