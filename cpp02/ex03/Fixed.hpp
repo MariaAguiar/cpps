@@ -40,6 +40,7 @@ class Fixed
 		static Fixed& max(Fixed& first, Fixed& second);
 		static const Fixed& min(const Fixed& first, const Fixed& second);
 		static const Fixed& max(const Fixed& first, const Fixed& second);
+		
 	private:
 		int fixed_point;
 		static const int bits = 8;
