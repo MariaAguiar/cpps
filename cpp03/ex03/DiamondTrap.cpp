@@ -5,8 +5,8 @@ DiamondTrap::DiamondTrap( std::string name ) : FragTrap(name + "_clap_name")
 	std::cout << "DiamondTrap: Parameterized constructor called" << std::endl;
 	Name = name;
 	HitPoints = FragTrap::HitPoints;
-	EnergyPoints = ScavTrap::EnergyPoints;
 	AttackDamage = FragTrap::AttackDamage;
+	EnergyPoints = energy;
 }
 
 DiamondTrap::DiamondTrap()

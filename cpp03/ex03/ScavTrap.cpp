@@ -7,6 +7,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 	HitPoints = 100;
 	EnergyPoints = 50;
 	AttackDamage = 20;
+	energy = EnergyPoints;
 };
 
 ScavTrap::ScavTrap()
@@ -16,6 +17,7 @@ ScavTrap::ScavTrap()
 	HitPoints = 100;
 	EnergyPoints = 50;
 	AttackDamage = 20;
+	energy = EnergyPoints;
 };
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)

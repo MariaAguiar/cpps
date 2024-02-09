@@ -1,6 +1,6 @@
 NAME = DiamondTrap
 CXX = c++
-CXXFLAGS = -std=c++98 -Wshadow -Wno-shadow -Wall -Wextra -Werror
+CXXFLAGS = -std=c++98 -Wshadow -Wall -Wextra -Werror
 SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 INCS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 OBJ = $(SRC:%.cpp=obj/%.o)

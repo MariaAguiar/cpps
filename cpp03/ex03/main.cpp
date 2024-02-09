@@ -12,7 +12,7 @@ int main( void ) {
 	std::cout << std::endl;
 	player.beRepaired(2);
 
-	for (int i = 0; i <= 100; i++)
+	for (int i = 0; i <= 50; i++)
 	{
 		std::cout << std::endl;
 		player.attack("OP Monster");
