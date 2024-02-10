@@ -33,7 +33,10 @@ WrongAnimal::~WrongAnimal()
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << type << ": SOOOOOUND!!!" << std::endl;
+	if (type.size() > 0)
+		std::cout << type << ": ANIMAL SOOOOOUND!!!" << std::endl;
+	else
+		std::cout << "ANIMAL SOOOOOUND!!!" << std::endl;
 };
 
 std::string WrongAnimal::getType() const
