@@ -17,6 +17,10 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 	std::cout << "MateriaSource: Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->index = other.index;
+		for(int i = 0; i < index; i++)
+			delete this->learned[i];
+		for(int i = 0; i < other.index; i++)
+			this->learned[i] = other.learned[i];
 	}
 	return *this;
 };
@@ -30,13 +34,20 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* materia)
 {
+	if (!materia)
+		return ;
 	if (index < 4)
 	{
 		learned[index] = materia;
+		std::cout << "Learned " << materia->getType() << " materia." << std::endl;
 		index++;
 	}
 	else
+	{
 		std::cout << "Maximum number of learned materia reached" << std::endl;
+		delete materia;
+		std::cout << "Discarded unlearned materia." << std::endl;
+	}
 };
 
 AMateria* MateriaSource::createMateria(std::string const & type)

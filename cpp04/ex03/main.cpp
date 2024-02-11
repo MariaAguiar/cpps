@@ -9,10 +9,14 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
-	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
@@ -25,7 +29,7 @@ int main()
 	}
 	for (int i = 2; i <= 4; i++)
 		me->unequip(i);
-	me->unequip(2);
+	me->unequip(0);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
@@ -33,6 +37,8 @@ int main()
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->use(2, *bob);
+	me->use(4, *bob);
 	delete bob;
 	delete me;
 	delete src;

@@ -157,7 +157,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > index)
+	if (idx < 0 || idx > 3)
 	{
 		std::cout << "Invalid Index" << std::endl;
 		return ;
