@@ -92,6 +92,7 @@ void Character::equip(AMateria* m)
 	if (i < 4 && !materias[i])
 	{
 		materias[i] = m;
+		index++;
 		std::cout << "Materia successfully equiped" << std::endl;
 	}
 	else if (i < 4 && materias[i] && materias[i] == m)
