@@ -8,7 +8,7 @@
 #include "ICharacter.hpp"
 #include <string>
 
-#define BAGSIZE 10
+#define BAGSIZE 5
 
 class Character : public ICharacter
 {
@@ -18,6 +18,7 @@ class Character : public ICharacter
 		int index;
 		AMateria *unused[BAGSIZE];
 		int unusedIndex;
+		int used;
 
 	public:
 		Character();

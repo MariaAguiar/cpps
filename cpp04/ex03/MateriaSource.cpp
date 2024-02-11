@@ -50,6 +50,6 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 			return newMat;
 		}
 	}
-	std::cout << "Unlearned Materia" << std::endl;
+	std::cout << "Tried to create unlearned Materia" << std::endl;
 	return (0);
 };

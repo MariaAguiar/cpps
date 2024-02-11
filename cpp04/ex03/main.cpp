@@ -17,13 +17,20 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	for (int i = 0; i <= 11; i++)
+	for (int i = 0; i <= 6; i++)
 	{
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
+		// me->equip(tmp);
 	}
-	for (int i = 3; i <= 4; i++)
+	for (int i = 2; i <= 4; i++)
 		me->unequip(i);
+	// me->unequip(2);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(-1, *bob);

@@ -6,6 +6,7 @@ Character::Character()
 	name = "";
 	index = 0;
 	unusedIndex = 0;
+	used = BAGSIZE + 1;
 	for (int i = 0; i < 4; i++)
 		materias[i] = NULL;
 	for (int i = 0; i < BAGSIZE; i++)
@@ -18,6 +19,7 @@ Character::Character(std::string const &name)
 	this->name = name;
 	index = 0;
 	unusedIndex = 0;
+	used = BAGSIZE + 1;
 	for (int i = 0; i < 4; i++)
 		materias[i] = NULL;
 	for (int i = 0; i < BAGSIZE; i++)
@@ -76,50 +78,77 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+	int i = 0;
+
 	if (!m)
 		return ;
-	if (index < 4 && !materias[index])
+	for(i = 0; i < 4; i++)
 	{
-		for(int i = 0; i < 4; i++)
+		if (materias[i] && materias[i] != m)
+			continue;
+		else
+			break ;
+	}
+	if (i < 4 && !materias[i])
+	{
+		materias[i] = m;
+		std::cout << "Materia successfully equiped" << std::endl;
+	}
+	else if (i < 4 && materias[i] && materias[i] == m)
+		std::cout << "Materia already equiped" << std::endl;
+	else
+	{
+		for(i = 0; i < BAGSIZE; i++)
 		{
-			if (materias[i] == m)
+			if (unused[i] && unused[i] == m)
 			{
-				std::cout << "Materia already equiped" << std::endl;
+				std::cout << "Materia already in bag." << std::endl;
 				return ;
 			}
 		}
-		materias[index] = m;
-		index++;
-	}
-	else if (index >= 4 && materias[index])
-	{
 		std::cout << "Materia slots already filled. Materia will be sent to bag." << std::endl;
-		if (unusedIndex > BAGSIZE)
-			unusedIndex = 0;
-		if (this->unused[unusedIndex])
+		if (unusedIndex >= BAGSIZE && used >= BAGSIZE)
+			used = 0;
+		if (used < BAGSIZE)
 		{
 			std::cout << "Bag is full. Discarding oldest materia..." << std::endl;
-			delete this->unused[unusedIndex];
+			delete unused[used];
+			unused[used] = m;
+			used++;
+		}	
+		else
+		{
+			unused[unusedIndex] = m;
+			unusedIndex++;
 		}
-		unused[unusedIndex] = m;
 		std::cout << "The new materia was sent to the bag." << std::endl;
 	}
 };
 
 void Character::unequip(int idx)
 {
+	int toUse = 0;
+	if (unusedIndex >= BAGSIZE && used >= BAGSIZE)
+		used = 0;
 	if (idx > 0 && idx < 4 && materias[idx])
 	{
-		if (unusedIndex > BAGSIZE)
-			unusedIndex = 0;
-		if (this->unused[unusedIndex])
+		if (unusedIndex >= BAGSIZE)
+			toUse = used;
+		else
+			toUse = unusedIndex;
+		if (this->unused[toUse])
 		{
 			std::cout << "Bag is full. Discarding oldest materia..." << std::endl;
-			delete this->unused[unusedIndex];
+			delete this->unused[toUse];
 		}
-		unused[unusedIndex] = materias[idx];
-		unusedIndex++;
+		unused[toUse] = materias[idx];
+		std::cout << "The new materia was sent to the bag." << std::endl;
+		if (unusedIndex >= BAGSIZE)
+			used++;
+		else
+			unusedIndex++;
 		materias[idx] = 0;
+		std::cout << "Slot " << idx << " is available." << std::endl;
 	}
 	else
 		std::cout << "Materia cannot be unequiped" << std::endl;
