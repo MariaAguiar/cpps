@@ -35,17 +35,21 @@ void MateriaSource::learnMateria(AMateria* materia)
 		learned[index] = materia;
 		index++;
 	}
+	else
+		std::cout << "Maximum number of learned materia reached" << std::endl;
 };
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	for(int i = 0; i <= 4; i++)
+	for(int i = 0; i < index; i++)
 	{
 		if (learned[i]->getType() == type)
 		{
+			std::cout << type << std::endl;
 			AMateria *newMat = learned[i]->clone();
 			return newMat;
 		}
 	}
+	std::cout << "Unlearned Materia" << std::endl;
 	return (0);
 };

@@ -8,21 +8,23 @@
 #include "ICharacter.hpp"
 #include <string>
 
+#define BAGSIZE 10
+
 class Character : public ICharacter
 {
 	private:
 		std::string name;
-        AMateria *materias[4];
-        int index;
-        AMateria *unused[4];
-        int unusedIndex;
+		AMateria *materias[4];
+		int index;
+		AMateria *unused[BAGSIZE];
+		int unusedIndex;
 
 	public:
 		Character();
 		Character(std::string const &name);
 		Character( const Character& other );
 		Character& operator=( const Character& other );
-        ~Character();
+		~Character();
 
 		std::string const & getName() const;
 		void equip(AMateria* m);
