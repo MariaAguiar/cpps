@@ -2,7 +2,7 @@
 
 Character::Character()
 {
-	std::cout << "Character: Default constructor called" << std::endl;
+	// std::cout << "Character: Default constructor called" << std::endl;
 	name = "";
 	index = 0;
 	unusedIndex = 0;
@@ -15,7 +15,7 @@ Character::Character()
 
 Character::Character(std::string const &name)
 {
-	std::cout << "Character: Parameterized constructor called" << std::endl;
+	// std::cout << "Character: Parameterized constructor called" << std::endl;
 	this->name = name;
 	index = 0;
 	unusedIndex = 0;
@@ -28,13 +28,13 @@ Character::Character(std::string const &name)
 
 Character::Character(const Character& other)
 {
-	std::cout << "Character: Copy constructor called" << std::endl;
+	// std::cout << "Character: Copy constructor called" << std::endl;
 	*this = other;
 };
 
 Character& Character::operator=(const Character& other)
 {
-	std::cout << "Character: Copy assignment operator called" << std::endl;
+	// std::cout << "Character: Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		this->name = other.name;
 		for(int i = 0; i < 4; i++)
@@ -52,13 +52,15 @@ Character& Character::operator=(const Character& other)
 		for(int i = 0; i < other.unusedIndex; i++)
 			this->unused[i] = other.unused[i];
 		this->index = other.index;
+		this->unusedIndex = other.unusedIndex;
+		this->used = other.used;
 	}
 	return *this;
 };
 
 Character::~Character()
 {
-	std::cout << "Character: Destructor called" << std::endl;
+	// std::cout << "Character: Destructor called" << std::endl;
 	for(int i = 0; i < 4; i++)
 	{
 		if (materias[i])
@@ -103,11 +105,11 @@ void Character::equip(AMateria* m)
 		{
 			if (unused[i] && unused[i] == m)
 			{
-				std::cout << "Materia already in bag." << std::endl;
+				std::cout << "Materia already in bag" << std::endl;
 				return ;
 			}
 		}
-		std::cout << "Materia slots already filled. Materia will be sent to bag." << std::endl;
+		std::cout << "Materia slots already filled. Materia will be sent to the bag" << std::endl;
 		if (unusedIndex >= BAGSIZE && used >= BAGSIZE)
 			used = 0;
 		if (used < BAGSIZE)
@@ -122,7 +124,7 @@ void Character::equip(AMateria* m)
 			unused[unusedIndex] = m;
 			unusedIndex++;
 		}
-		std::cout << "The new materia was sent to the bag." << std::endl;
+		std::cout << "The new materia was sent to the bag" << std::endl;
 	}
 };
 
@@ -143,13 +145,13 @@ void Character::unequip(int idx)
 			delete this->unused[toUse];
 		}
 		unused[toUse] = materias[idx];
-		std::cout << "The new materia was sent to the bag." << std::endl;
+		std::cout << "The materia was sent to the bag" << std::endl;
 		if (unusedIndex >= BAGSIZE)
 			used++;
 		else
 			unusedIndex++;
 		materias[idx] = 0;
-		std::cout << "Slot " << idx << " is available." << std::endl;
+		std::cout << "Slot " << idx << " is available" << std::endl;
 	}
 	else
 		std::cout << "Materia cannot be unequiped" << std::endl;
