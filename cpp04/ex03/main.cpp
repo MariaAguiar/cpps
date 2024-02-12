@@ -65,7 +65,7 @@ int main()
 
 
 	std::cout << std::endl;
-	for (int i = 0; i <= 6; i++)
+	for (int i = 0; i <= 9; i++)
 	{
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
@@ -75,7 +75,7 @@ int main()
 	
 
 
-	std::cout << "\n\nUNEQUIP AND USE TESTS:" << std::endl;
+	std::cout << "\n\nUNEQUIP TESTS:" << std::endl;
 
 	std::cout << std::endl;
 	for (int i = 2; i <= 4; i++)

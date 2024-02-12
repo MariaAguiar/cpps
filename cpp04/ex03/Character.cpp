@@ -109,7 +109,7 @@ void Character::equip(AMateria* m)
 				return ;
 			}
 		}
-		std::cout << "Materia slots already filled. Materia will be sent to the bag" << std::endl;
+		std::cout << "Materia slots already filled. The new Materia will be sent to the bag" << std::endl;
 		if (unusedIndex >= BAGSIZE && used >= BAGSIZE)
 			used = 0;
 		if (used < BAGSIZE)
@@ -145,7 +145,7 @@ void Character::unequip(int idx)
 			delete this->unused[toUse];
 		}
 		unused[toUse] = materias[idx];
-		std::cout << "The materia was sent to the bag" << std::endl;
+		std::cout << "The Materia in Slot " << idx << " was sent to the bag" << std::endl;
 		if (unusedIndex >= BAGSIZE)
 			used++;
 		else
@@ -154,7 +154,7 @@ void Character::unequip(int idx)
 		std::cout << "Slot " << idx << " is available" << std::endl;
 	}
 	else
-		std::cout << "Materia cannot be unequiped" << std::endl;
+		std::cout << "Invalid index to unequip" << std::endl;
 };
 
 void Character::use(int idx, ICharacter& target)
