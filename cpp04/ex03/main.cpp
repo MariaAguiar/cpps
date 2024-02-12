@@ -43,21 +43,15 @@ int main()
 	tmp = src->createMateria("ice");
 
 	std::cout << std::endl;
-	src->learnMateria(icy);
-	src->learnMateria(icy);
-
-	std::cout << std::endl;
 	src->learnMateria(regen);
 	src->learnMateria(new Ice());
 	src->learnMateria(new Ice());
 	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());
+	src->learnMateria(new Ice());
 	src->learnMateria(icy);
-	// delete icy;
 	src->learnMateria(regen);
-	// delete regen;
-
 	std::cout << std::endl;
-	me->use(0, *bob);
 
 
 
