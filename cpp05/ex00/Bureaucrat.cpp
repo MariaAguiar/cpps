@@ -9,9 +9,9 @@ Bureaucrat::Bureaucrat( std::string nname, int ngrade ) : name(nname)
 {
 	std::cout << "Bureaucrat: Parameterized constructor called" << std::endl;
 	if (ngrade < 1)
-		throw Bureaucrat::GradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	else if (ngrade > 150)
-		throw Bureaucrat::GradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 	else
 		grade = ngrade;
 };
@@ -36,27 +36,27 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat: Destructor called" << std::endl;
 };
 
-const std::string getName() const
+const std::string Bureaucrat::getName() const
 {
 	return name;
 };
 
-int getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return grade;
 };
 
-void upGrade()
+void Bureaucrat::upGrade()
 {
 	if (grade - 1 < 1)
-		throw Bureaucrat::GradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	grade--;
 };
 
-void downGrade()
+void Bureaucrat::downGrade()
 {
 	if (grade + 1 > 150)
-		throw Bureaucrat::GradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 	grade++;
 };
 

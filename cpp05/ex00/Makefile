@@ -1,4 +1,4 @@
-NAME = DiamondTrap
+NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = main.cpp Bureaucrat.cpp
