@@ -6,7 +6,7 @@ Form::Form(): name(""), sign(false), signGrade(1), execGrade(1)
 };
 
 Form::Form( const std::string nname, const int sgrade, const int egrade ) :
-name(nname), signGrade(sgrade), execGrade(egrade), sign(false)
+name(nname), sign(false), signGrade(sgrade), execGrade(egrade)
 {
 	std::cout << "Form: Parameterized constructor called" << std::endl;
 	if (signGrade < 1 || execGrade < 1)
@@ -21,7 +21,7 @@ Form::Form(const Form& other) : name(other.name), signGrade(other.signGrade), ex
 	*this = other;
 };
 
-Form& Form::operator=(const Form& other)
+Form& Form::operator=(const Form&)
 {
 	std::cout << "Form: Copy assignment operator called" << std::endl;
 	return *this;
@@ -37,17 +37,17 @@ const std::string Form::getName() const
 	return name;
 };
 
-const int Form::getSignGrade() const
+int Form::getSignGrade() const
 {
 	return signGrade;
 };
 
-const int Form::getExecGrade() const
+int Form::getExecGrade() const
 {
 	return execGrade;
 };
 
-const bool Form::getSign() const
+bool Form::getSign() const
 {
 	return sign;
 };
@@ -66,4 +66,17 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low!");
+}
+const char *Form::FormAlreadySignedException::what() const throw()
+{
+    return ("Form is already signed");
+}
+
+void Form::beSigned(const Bureaucrat &signer)
+{
+	if (sign == true)
+		throw Form::FormAlreadySignedException();
+	if (signer.getGrade() > signGrade)
+		throw Form::GradeTooLowException();
+	sign = true;
 }

@@ -1,8 +1,10 @@
 NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp Bureaucrat.cpp
-INCS = Bureaucrat.hpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp \
+ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+INCS = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp \
+RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 
 all: $(NAME)

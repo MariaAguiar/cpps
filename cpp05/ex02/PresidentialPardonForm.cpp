@@ -5,8 +5,8 @@ PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm
 	std::cout << "PresidentialPardonForm: Default constructor called" << std::endl;
 };
 
-PresidentialPardonForm::PresidentialPardonForm( const std::string ttarget ) : target(ttarget),
-AForm("PresidentialPardonForm", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( const std::string ttarget ) :
+AForm("PresidentialPardonForm", 25, 5), target(ttarget)
 {
 	std::cout << "PresidentialPardonForm: Parameterized constructor called" << std::endl;
 };
@@ -30,3 +30,14 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "PresidentialPardonForm: Destructor called" << std::endl;
 };
+
+std::string const &PresidentialPardonForm::getTarget(void) const
+{
+	return (this->target);
+}
+
+void PresidentialPardonForm::execute( Bureaucrat const &executor ) const
+{
+	this->canExecute(executor);
+	std::cout << target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}
