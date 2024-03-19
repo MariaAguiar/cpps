@@ -4,27 +4,36 @@
 int main( void )
 {
 	{
-		Bureaucrat b1("Shitty Bureaucrat", 149);
+		std::cout << "Scenario 1" << std::endl;
 		try
-		{	
-			b1.downGrade();
-			std::cout << "Updated" << std::endl;
-			b1.downGrade();
+		{
+			Bureaucrat b1("Pretty bad Bureaucrat", 150);
+			Form f1("Unimportant Form", 149);
+			// b1.downGrade();
+			b1.signForm(f1);
+			f1.beSigned(b1);
+			b1.signForm(f1);
 		}
-		catch (const Bureaucrat::GradeTooLowException& e)
+		// catch (const Bureaucrat::GradeTooHighException& e)
+		catch (const std::exception &e)
 		{
 			std::cerr << "Error: " << e.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
 	{
+		std::cout << "Scenario 2" << std::endl;
 		try
 		{
 			Bureaucrat b1("Stellar Bureaucrat", 2);
-			b1.upGrade();
-			std::cout << "Updated" << std::endl;
-			b1.upGrade();
+			Form f1("Extremely Important Form", 1);
+			// b1.upGrade();
+			b1.signForm(f1);
+			f1.beSigned(b1);
+			b1.signForm(f1);
 		}
-		catch (const Bureaucrat::GradeTooHighException& e)
+		// catch (const Bureaucrat::GradeTooHighException& e)
+		catch (const std::exception &e)
 		{
 			std::cerr << "Error: " << e.what() << std::endl;
 		}

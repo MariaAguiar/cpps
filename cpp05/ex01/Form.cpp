@@ -1,21 +1,21 @@
 #include "Form.hpp"
 
-Form::Form(): name(""), sign(false), signGrade(1), execGrade(1)
+Form::Form(): name(""), sign(false), signGrade(1)
 {
 	std::cout << "Form: Default constructor called" << std::endl;
 };
 
-Form::Form( const std::string nname, const int sgrade, const int egrade ) :
-name(nname), sign(false), signGrade(sgrade), execGrade(egrade)
+Form::Form( const std::string nname, const int sgrade ) :
+name(nname), sign(false), signGrade(sgrade)
 {
 	std::cout << "Form: Parameterized constructor called" << std::endl;
-	if (signGrade < 1 || execGrade < 1)
+	if (signGrade < 1)
 		throw Form::GradeTooHighException();
-	else if (signGrade > 150 || execGrade > 150)
+	else if (signGrade > 150)
 		throw Form::GradeTooLowException();
 };
 
-Form::Form(const Form& other) : name(other.name), signGrade(other.signGrade), execGrade(other.execGrade)
+Form::Form(const Form& other) : name(other.name), signGrade(other.signGrade)
 {
 	std::cout << "Form: Copy constructor called" << std::endl;
 	*this = other;
@@ -42,11 +42,6 @@ int Form::getSignGrade() const
 	return signGrade;
 };
 
-int Form::getExecGrade() const
-{
-	return execGrade;
-};
-
 bool Form::getSign() const
 {
 	return sign;
@@ -54,7 +49,7 @@ bool Form::getSign() const
 
 std::ostream &operator<<(std::ostream &os, const Form &obj)
 {
-	os << obj.getName() << ", Form Info: " << obj.getSignGrade() << ", " << obj.getExecGrade() << "." << std::endl;
+	os << obj.getName() << ", Form Info: " << obj.getSignGrade() << "." << std::endl;
 	return (os);
 }
 

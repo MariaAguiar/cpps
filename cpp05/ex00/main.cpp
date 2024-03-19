@@ -4,9 +4,9 @@
 int main( void )
 {
 	{
-		Bureaucrat b1("Shitty Bureaucrat", 149);
 		try
-		{	
+		{
+			Bureaucrat b1("Pretty bad Bureaucrat", 149);	
 			b1.downGrade();
 			std::cout << "Updated" << std::endl;
 			b1.downGrade();

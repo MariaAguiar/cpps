@@ -10,14 +10,13 @@ class Bureaucrat;
 class Form
 {
 	public:
-		Form( const std::string nname, const int sgrade, const int egrade );
+		Form( const std::string nname, const int sgrade );
 		Form( const Form& other );
 		Form& operator=( const Form& other );
 		~Form();
 
 		const std::string getName() const;
 		int getSignGrade() const;
-		int getExecGrade() const;
 		bool getSign() const;
 
 		void beSigned(const Bureaucrat &signer);
@@ -43,7 +42,6 @@ class Form
 		const std::string name;
 		bool sign;
 		const int signGrade;
-		const int execGrade;
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& obj);
