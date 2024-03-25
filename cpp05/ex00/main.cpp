@@ -11,7 +11,7 @@ int main( void )
 			std::cout << "Updated" << std::endl;
 			b1.downGrade();
 		}
-		catch (const Bureaucrat::GradeTooLowException& e)
+		catch (const std::exception &e)
 		{
 			std::cerr << "Error: " << e.what() << std::endl;
 		}
@@ -24,7 +24,7 @@ int main( void )
 			std::cout << "Updated" << std::endl;
 			b1.upGrade();
 		}
-		catch (const Bureaucrat::GradeTooHighException& e)
+		catch (const std::exception &e)
 		{
 			std::cerr << "Error: " << e.what() << std::endl;
 		}
