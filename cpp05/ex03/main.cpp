@@ -14,10 +14,12 @@ int main( void )
 		AForm* rrf;
 		try
 		{
-			Bureaucrat b1("Pretty Bad Bureaucrat", 150);
+			Bureaucrat b1("Pretty Bad Bureaucrat", 1);
 			Intern someRandomIntern;
-			rrf = someRandomIntern.makeForm("", "Bender");
+			rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
 			ok = true;
+			// rrf->beSigned(b1);
+			// rrf->beSigned(b1);
 			b1.signForm(*rrf);
 			b1.signForm(*rrf);
 			b1.executeForm(*rrf);
